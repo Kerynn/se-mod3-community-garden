@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :plots, only: [:show]
+      resources :plots, only: [:show] do
+        resources :plants, only: [:create], controller: 'plots/plants'
+      end
     end
   end
 end
